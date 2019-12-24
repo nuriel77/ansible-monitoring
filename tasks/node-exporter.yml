@@ -50,7 +50,7 @@
 - name: cronjob to get mainnetdb size
   cron:
     name: "get-mainnet-db-size"
-    job: "/usr/local/bin/get_db_size.sh {{ collector_textfiles_dir }}/mainnetdb_size.prom {{ hornet_db_path }}"
+    job: "/usr/local/bin/get_db_size.sh {{ collector_textfiles_dir }}/mainnetdb_size.prom {{ node_db_path }}"
   tags:
     - prometheus_config
 
