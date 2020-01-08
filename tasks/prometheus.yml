@@ -67,3 +67,4 @@
   systemd:
     name: prometheus.service
     state: started
+    enabled: yes
