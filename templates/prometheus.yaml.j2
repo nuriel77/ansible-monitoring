@@ -16,12 +16,13 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['{{ 'iota-prom-exporter' if iri_net_name is defined else '127.0.0.1' }}:{{ iota_prom_exporter_port }}']
-{% if hornet_prometheus_address is defined and hornet_prometheus_port is defined and hornet_prometheus_prometheus_metrics|default(True)|bool %}
+{% if hornet_prometheus_address is defined and hornet_prometheus_port is defined %}
   - job_name: 'hornet_exporter'
     scrape_interval: 5s
     static_configs:
       - targets: ['{{ hornet_prometheus_address | default('127.0.0.1') }}:{{ hornet_prometheus_port | default('9312') }}']
 {% endif %}
+
   - job_name: 'cadvisor'
     scrape_interval: 5s
     static_configs:
