@@ -33,6 +33,9 @@
     - node_exporter_config
 
 - import_tasks: iota-prom-exporter.yml
+  when:
+    - hornet_prometheus_address is not defined
+    - hornet_prometheus_port is not defined
   tags:
     - iota_prom_exporter_config
 
