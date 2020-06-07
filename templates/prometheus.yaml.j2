@@ -11,11 +11,6 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['{{ 'node-exporter' if iri_net_name is defined else '127.0.0.1' }}:{{ exporter_port }}']
-
-  - job_name: 'iota_exporter'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['{{ 'iota-prom-exporter' if iri_net_name is defined else '127.0.0.1' }}:{{ iota_prom_exporter_port }}']
 {% if hornet_prometheus_address is defined and hornet_prometheus_port is defined %}
   - job_name: 'hornet_exporter'
     scrape_interval: 5s

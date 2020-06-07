@@ -105,7 +105,6 @@
     src: "files/{{ item }}"
     dest: "{{ grafana_dashboards_path }}/{{ item }}"
   with_items:
-    - "iota_exporter_dashboard.json"
     - "prometheus_dashboard.json"
     - "node_exporter_dashboard.json"
     - "cadvisor_dashboard.json"
