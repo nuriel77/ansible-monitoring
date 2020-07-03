@@ -59,3 +59,6 @@ grafana_configdir: /etc/grafana
 grafana_basedir: /var/lib/grafana
 grafana_provisioning_path: "{{ grafana_configdir }}/provisioning"
 grafana_dashboards_path: "{{ grafana_basedir }}/dashboards"
+
+# Goshimmer dashboard URL
+goshimmer_dashboard_url: "https://raw.githubusercontent.com/iotaledger/goshimmer/master/tools/monitoring/grafana/dashboards/local_dashboard.json"

@@ -110,3 +110,11 @@
     - "cadvisor_dashboard.json"
     - "haproxy_exporter.json"
     - "hornet_exporter_dashboard.json"
+
+- name: goshimmer dashboard
+  when:
+    - goshimmer_prometheus_exporter_internal_address is defined
+    - goshimmer_prometheus_exporter_port is defined
+  get_url:
+    url: "{{ goshimmer_dashboard_url }}"
+    dest: "{{ grafana_dashboards_path }}/grafana_dashboard.json"

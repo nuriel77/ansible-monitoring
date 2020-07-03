@@ -15,9 +15,14 @@ scrape_configs:
   - job_name: 'hornet_exporter'
     scrape_interval: 5s
     static_configs:
-      - targets: ['{{ hornet_prometheus_address | default('127.0.0.1') }}:{{ hornet_prometheus_port | default('9312') }}']
+      - targets: ['{{ hornet_prometheus_address }}:{{ hornet_prometheus_port }}']
 {% endif %}
-
+{% if goshimmer_prometheus_exporter_internal_address is defined and goshimmer_prometheus_exporter_port is defined %}
+  - job_name: 'goshimmer_exporter'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['{{ goshimmer_prometheus_exporter_internal_address }}:{{ goshimmer_prometheus_exporter_port }}']
+{% endif %}
   - job_name: 'cadvisor'
     scrape_interval: 5s
     static_configs:
