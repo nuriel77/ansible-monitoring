@@ -1,3 +1,8 @@
+- name: restart rsyslog
+  systemd:
+    name: rsyslog.service
+    state: restarted
+
 - name: restart grafana-server
   systemd:
     name: grafana-server.service
