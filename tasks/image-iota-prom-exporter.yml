@@ -13,6 +13,8 @@
         tag: "{{ iota_prom_exporter_tag }}"
         state: absent
         force_absent: yes
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
   when: remove_ipe_image|default(False)|bool
 
@@ -49,6 +51,8 @@
         name: "{{ iota_prom_exporter_image }}"
         tag: "{{ iota_prom_exporter_tag }}"
         source: build
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
       notify:
         - restart iota-prom-exporter
       register: build_image_status
@@ -68,6 +72,8 @@
     tag: "{{ iota_prom_exporter_tag }}"
     force_source: "{{ force_pull_image | default('no') }}"
     source: pull
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   notify:
     - restart iota-prom-exporter
   register: download_image_status
@@ -86,6 +92,8 @@
     tag: "{{ iota_prom_exporter_tag }}"
     force_source: "{{ force_pull_image | default('no') }}"
     source: pull
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   notify:
     - restart iota-prom-exporter
   register: download_image_status
@@ -116,6 +124,8 @@
 
     - name: export the image to a file
       delegate_to: "{{ groups['fullnode']|first }}"
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
       docker_image:
         name: "{{ this_image }}"
         tag: "{{ this_tag }}"
@@ -135,6 +145,8 @@
         tag: "{{ this_tag }}"
         load_path: "{{ this_file }}"
         source: load
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
       when:
         - image_copied.changed
       notify:

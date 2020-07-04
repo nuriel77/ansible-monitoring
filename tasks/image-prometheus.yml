@@ -4,6 +4,8 @@
     tag: "{{ prom_tag }}"
     force_source: "{{ force_pull_image | default('no') }}"
     source: pull
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   notify:
     - restart prometheus
   register: download_image_status
@@ -22,6 +24,8 @@
     tag: "{{ prom_tag }}"
     force_source: "{{ force_pull_image | default('no') }}"
     source: pull
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   notify:
     - restart prometheus
   register: download_image_status
@@ -57,6 +61,8 @@
         tag: "{{ this_tag }}"
         archive_path: "{{ this_file }}"
       when: "image_stat.rc == 1"
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
     - name: copy the docker image from the first node
       synchronize:
@@ -71,6 +77,8 @@
         tag: "{{ this_tag }}"
         load_path: "{{ this_file }}"
         source: load
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
       when:
         - image_copied.changed
       notify:
