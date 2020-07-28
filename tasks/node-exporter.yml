@@ -37,33 +37,6 @@
   tags:
     - prometheus_config
 
-# TODO: remove once IRI is gone, also not needed in hornet any longer
-- name: db size
-  when:
-    - goshimmer_prometheus_exporter_internal_address is not defined
-    - goshimmer_prometheus_exporter_port is not defined
-  block:
-
-    - name: copy db size custom script
-      copy:
-        src: "roles/monitoring/files/{{ item }}"
-        dest: "/usr/local/bin/{{ item }}"
-        mode: 0755
-      with_items:
-        - get_db_size.sh
-      tags:
-        - prometheus_config
-
-    - name: cronjob to get mainnetdb size
-      cron:
-        name: "get-mainnet-db-size"
-        job: "/usr/local/bin/get_db_size.sh {{ collector_textfiles_dir }}/mainnetdb_size.prom {{ node_db_path }}"
-      tags:
-        - prometheus_config
-
-- name: flush handlers
-  meta: flush_handlers
-
 - name: ensure node exporter enabled and started
   systemd:
     name: node-exporter.service
