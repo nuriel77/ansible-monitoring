@@ -41,4 +41,5 @@
   systemd:
     name: node-exporter.service
     state: started
+    daemon_reload: yes
     enabled: yes
