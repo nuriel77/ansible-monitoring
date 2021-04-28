@@ -1,6 +1,6 @@
 # Prometheus
 prom_image: prom/prometheus
-prom_tag: v2.19.2
+prom_tag: v2.26.0
 prom_username: prometheus
 prom_basedir: /opt/prometheus
 prom_datadir: /var/lib/prometheus
@@ -12,7 +12,7 @@ prom_proxy_port: "8999"
 
 # Node exporter
 exporter_image: prom/node-exporter
-exporter_tag: v1.0.1
+exporter_tag: v1.1.2
 exporter_basedir: /opt/prometheus/node_exporter
 exporter_port: "9100"
 exporter_bind_address: 127.0.0.1
@@ -51,7 +51,7 @@ cadvisor_port: "8181"
 # Grafana
 grafana_username: grafana
 grafana_image: grafana/grafana
-grafana_tag: 7.1.1
+grafana_tag: 7.5.5
 grafana_port: "3000"
 grafana_bind_address: 127.0.0.1
 grafana_proxy_port: "5555"
