@@ -13,13 +13,6 @@
   tags:
     - monitoring_preinstall
 
-- import_tasks: firewall.yml
-  tags:
-    - monitoring_firewall
-  when:
-    - configure_firewall is defined
-    - configure_firewall|bool
-
 - import_tasks: alertmanager.yml
   tags:
     - alertmanager_config
