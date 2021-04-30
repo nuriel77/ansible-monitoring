@@ -25,6 +25,7 @@ ExecStart=/usr/bin/docker run \
   {{ prom_image }}:${TAG} \
   --config.file=${CONFIG_FILE} \
   --storage.tsdb.path=/data/ \
+  --web.external-url=${WEB_EXTERNAL_ADDRESS} \
   --web.listen-address={% if iri_net_name is not defined %}127.0.0.1{% endif %}:${BIND_PORT}
 
 ExecStop=/usr/bin/docker stop %p
