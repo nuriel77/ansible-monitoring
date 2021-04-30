@@ -109,18 +109,6 @@
     - "node_exporter_dashboard.json"
     - "cadvisor_dashboard.json"
 
-- name: copy haproxy and hornet dashboards
-  # For now don't install those if goshimmer node
-  when:
-    - goshimmer_prometheus_exporter_internal_address is not defined
-    - goshimmer_prometheus_exporter_port is not defined
-  copy:
-    src: "files/{{ item }}"
-    dest: "{{ grafana_dashboards_path }}/{{ item }}"
-  with_items:
-    - "haproxy_exporter.json"
-    - "hornet_exporter_dashboard.json"
-
 - name: goshimmer dashboard
   when:
     - goshimmer_prometheus_exporter_internal_address is defined
