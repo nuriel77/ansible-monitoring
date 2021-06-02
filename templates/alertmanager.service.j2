@@ -21,7 +21,7 @@ ExecStart=/usr/bin/docker run \
   $DOCKER_OPTS \
   {{ alertmanager_image }}:${TAG} \
   --config.file=/etc/config.yml \
-  --web.listen-address=127.0.0.1 \
+  --web.listen-address=127.0.0.1:${BIND_PORT} \
   --log.level ${LOG_LEVEL} \
   --storage.path=/alertmanager/
 
