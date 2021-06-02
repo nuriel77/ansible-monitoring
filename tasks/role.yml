@@ -13,13 +13,6 @@
   tags:
     - monitoring_preinstall
 
-- import_tasks: firewall.yml
-  tags:
-    - monitoring_firewall
-  when:
-    - configure_firewall is defined
-    - configure_firewall|bool
-
 - import_tasks: alertmanager.yml
   tags:
     - alertmanager_config
@@ -31,15 +24,6 @@
 - import_tasks: node-exporter.yml
   tags:
     - node_exporter_config
-
-- import_tasks: iota-prom-exporter.yml
-  when:
-    - hornet_prometheus_address is not defined
-    - hornet_prometheus_port is not defined
-    - goshimmer_prometheus_exporter_internal_address is not defined
-    - goshimmer_prometheus_exporter_port is not defined
-  tags:
-    - iota_prom_exporter_config
 
 - import_tasks: grafana.yml
   tags:
