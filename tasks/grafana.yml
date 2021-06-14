@@ -116,6 +116,7 @@
   copy:
     src: "files/hornet_dashboard.json"
     dest: "{{ grafana_dashboards_path }}/hornet_dashboard.json"
+  tags: install_hornet_dashboard
 
 - name: goshimmer dashboard
   when:
@@ -124,3 +125,4 @@
   get_url:
     url: "{{ goshimmer_dashboard_url }}"
     dest: "{{ grafana_dashboards_path }}/grafana_dashboard.json"
+  tags: install_goshimmer_dashboard
