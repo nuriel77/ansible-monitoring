@@ -109,6 +109,14 @@
     - "node_exporter_dashboard.json"
     - "cadvisor_dashboard.json"
 
+- name: hornet dashboard
+  when:
+    - hornet_prometheus_address is defined
+    - hornet_prometheus_port is defined
+  copy:
+    src: "files/hornet_dashboard.json"
+    dest: "{{ grafana_dashboards_path }}/hornet_dashboard.json"
+
 - name: goshimmer dashboard
   when:
     - goshimmer_prometheus_exporter_internal_address is defined

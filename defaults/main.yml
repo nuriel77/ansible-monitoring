@@ -1,6 +1,6 @@
 # Prometheus
 prom_image: prom/prometheus
-prom_tag: v2.26.0
+prom_tag: v2.27.1
 prom_username: prometheus
 prom_basedir: /opt/prometheus
 prom_datadir: /var/lib/prometheus
@@ -38,7 +38,7 @@ cadvisor_port: "8181"
 # Grafana
 grafana_username: grafana
 grafana_image: grafana/grafana
-grafana_tag: 7.5.5
+grafana_tag: 8.0.2
 grafana_port: "3000"
 grafana_bind_address: 127.0.0.1
 grafana_configdir: /etc/grafana
