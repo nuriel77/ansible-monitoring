@@ -1,6 +1,6 @@
 # Prometheus
 prom_image: prom/prometheus
-prom_tag: v2.27.1
+prom_tag: v2.31.1
 prom_username: prometheus
 prom_basedir: /opt/prometheus
 prom_datadir: /var/lib/prometheus
@@ -11,7 +11,7 @@ prom_bind_address: 127.0.0.1
 
 # Node exporter
 exporter_image: prom/node-exporter
-exporter_tag: v1.1.2
+exporter_tag: v1.3.1
 exporter_basedir: /opt/prometheus/node_exporter
 exporter_port: "9100"
 exporter_bind_address: 127.0.0.1
@@ -20,7 +20,7 @@ collector_textfiles_dir: /var/run/prometheus
 # Alertmanager
 alertmanager_basedir: /opt/prometheus/alertmanager
 alertmanager_image: prom/alertmanager
-alertmanager_tag: v0.21.0
+alertmanager_tag: v0.23.0
 alertmanager_port: "9093"
 alertmanager_bind: 127.0.0.1
 alertmanager_email_from: alertmanager
@@ -38,7 +38,7 @@ cadvisor_port: "8181"
 # Grafana
 grafana_username: grafana
 grafana_image: grafana/grafana
-grafana_tag: 8.0.2
+grafana_tag: 8.3.2
 grafana_port: "3000"
 grafana_bind_address: 127.0.0.1
 grafana_configdir: /etc/grafana
